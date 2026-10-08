@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReCliente — Iniciar diagnóstico</title>
+<style>
+:root{--bg:#fbf8f6;--card:#fff;--ink:#252222;--muted:#706865;--accent:#9a5f68;--dark:#211d1d;--line:#eadfdb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+.container{width:min(920px,92%);margin:auto}.top{padding:24px 0;border-bottom:1px solid var(--line)}.logo{font-size:24px;font-weight:950;letter-spacing:-1px}.logo span{color:var(--accent)}
+main{padding:58px 0}.eyebrow{display:inline-block;background:#efe2df;color:#6f3f49;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,58px);line-height:1;letter-spacing:-2px;margin:16px 0}.lead{font-size:19px;color:var(--muted);max-width:720px}
+.card{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 18px 50px rgba(40,25,25,.07)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}label{display:block;font-weight:800;font-size:14px;margin:4px 0 7px}
+input,select,textarea{width:100%;padding:13px;border:1px solid var(--line);border-radius:11px;background:#fff;font:inherit}textarea{min-height:110px;resize:vertical}
+.btn{width:100%;margin-top:20px;border:0;border-radius:12px;padding:15px;background:var(--dark);color:#fff;font-weight:900;font-size:15px;cursor:pointer}
+.note{margin-top:18px;padding:14px;border-radius:12px;background:#f5eeeb;color:var(--muted);font-size:13px}
+.status{display:none;margin-top:18px;padding:16px;border-radius:12px;background:#edf4ee;color:#45684c;font-weight:750}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}.step{padding:16px;border:1px solid var(--line);border-radius:14px;background:#fff}.step b{display:block;margin-bottom:5px}
+@media(max-width:700px){.grid,.steps{grid-template-columns:1fr}.full{grid-column:auto}main{padding:42px 0}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container"><div class="logo">RE<span>CLIENTE</span></div></div></div>
+<main>
+<div class="container">
+<span class="eyebrow">ReCliente Diagnóstico</span>
+<h1>Vamos descobrir onde estão suas oportunidades de retorno.</h1>
+<p class="lead">Você já concluiu a compra. Agora precisamos de algumas informações para preparar seu diagnóstico.</p>
+
+<div class="steps">
+  <div class="step"><b>01. Informar</b>Conte um pouco sobre seu negócio.</div>
+  <div class="step"><b>02. Analisar</b>Organizamos sua base e identificamos prioridades.</div>
+  <div class="step"><b>03. Receber</b>Você recebe seu diagnóstico e plano inicial.</div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">Dados para começar</h2>
+  <p style="color:var(--muted)">Use o mesmo e-mail informado no pagamento. Não envie senhas.</p>
+  <div class="grid">
+    <div>
+      <label for="nome">Seu nome</label>
+      <input id="nome" placeholder="Como podemos chamar você?">
+    </div>
+    <div>
+      <label for="email">E-mail da compra</label>
+      <input id="email" type="email" placeholder="seu@email.com">
+    </div>
+    <div>
+      <label for="negocio">Tipo de negócio</label>
+      <select id="negocio">
+        <option>Nails / Manicure</option><option>Salão de beleza</option><option>Barbearia</option><option>Estética</option><option>Pet</option><option>Outro</option>
+      </select>
+    </div>
+    <div>
+      <label for="clientes">Quantidade aproximada de clientes</label>
+      <select id="clientes">
+        <option>Até 100</option><option>100–300</option><option>300–1.000</option><option>Mais de 1.000</option>
+      </select>
+    </div>
+    <div class="full">
+      <label for="observacoes">Como você controla seus clientes hoje?</label>
+      <textarea id="observacoes" placeholder="Ex.: agenda, Excel, sistema de vendas, WhatsApp, outro..."></textarea>
+    </div>
+  </div>
+  <div class="note"><strong>Privacidade:</strong> nesta primeira versão, não precisamos de senhas. A forma segura de enviar uma base de clientes será definida antes de solicitar nomes e telefones.</div>
+  <button class="btn" onclick="enviar()">Continuar com meu diagnóstico</button>
+  <div id="status" class="status">Recebemos seus dados nesta demonstração. A integração de envio real será conectada ao ReCliente antes da primeira venda.</div>
+</div>
+</div>
+</main>
+<script>
+function enviar(){
+  const nome=document.getElementById('nome').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!nome || !email){alert('Preencha seu nome e o e-mail usado na compra.');return}
+  document.getElementById('status').style.display='block';
+  document.getElementById('status').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body>
+</html>
