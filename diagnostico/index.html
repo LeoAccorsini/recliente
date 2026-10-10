@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,78 +8,377 @@
 <meta name="description" content="ReCliente Diagnóstico — descubra onde estão suas oportunidades de retorno.">
 <style>
 :root{--bg:#fbf8f6;--card:#fff;--ink:#252222;--muted:#706865;--accent:#9a5f68;--accent2:#6f3f49;--dark:#211d1d;--line:#eadfdb;--soft:#f5eeeb}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
-.container{width:min(900px,92%);margin:auto}.top{padding:22px 0;border-bottom:1px solid var(--line);background:rgba(251,248,246,.92);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
-.logo{font-size:23px;font-weight:950;letter-spacing:-1px}.logo span{color:var(--accent)}main{padding:42px 0 70px}.hero{max-width:760px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5}
+.container{width:min(900px,92%);margin:auto}
+.top{padding:22px 0;border-bottom:1px solid var(--line);background:rgba(251,248,246,.92);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.logo{font-size:23px;font-weight:950;letter-spacing:-1px}
+.logo span{color:var(--accent)}
+main{padding:42px 0 70px}
+.hero{max-width:760px}
 .eyebrow{display:inline-block;background:#efe2df;color:var(--accent2);padding:7px 11px;border-radius:999px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.6px}
-h1{font-size:clamp(36px,6vw,56px);line-height:1.02;letter-spacing:-2.2px;margin:15px 0 12px}.lead{font-size:18px;color:var(--muted);max-width:700px;margin:0}
-.progressWrap{margin:28px 0 18px}.progressTop{display:flex;justify-content:space-between;font-size:12px;font-weight:850;color:var(--muted);margin-bottom:8px}.progress{height:7px;background:#eadfdb;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:25%;background:var(--accent);border-radius:99px;transition:width .35s ease}
-.card{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 14px 42px rgba(40,25,25,.055)}.step{display:none;animation:fade .25s ease}.step.active{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}.stepNo{font-size:12px;font-weight:900;color:var(--accent);text-transform:uppercase;letter-spacing:.7px}
-h2{font-size:28px;line-height:1.1;letter-spacing:-.8px;margin:8px 0}.helper{color:var(--muted);margin:0 0 20px}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.option{position:relative}.option input{position:absolute;opacity:0;pointer-events:none}.option label{display:block;border:1px solid var(--line);border-radius:15px;padding:16px 15px;background:#fff;cursor:pointer;font-weight:800;transition:.18s ease}
-.option label:hover{transform:translateY(-1px);border-color:#cfaeb2}.option input:checked+label{border-color:var(--accent);background:#f8eff0;box-shadow:0 0 0 2px rgba(154,95,104,.12)}
-.textGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label.field{display:block;font-size:13px;font-weight:850;margin-bottom:7px}
-input[type=text],input[type=email]{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit;outline:none}input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(154,95,104,.1)}
-.actions{display:flex;gap:10px;margin-top:22px}.btn{flex:1;border:0;border-radius:12px;padding:15px;background:var(--dark);color:#fff;font-weight:900;font-size:15px;cursor:pointer}.btn.secondary{background:#f2e9e6;color:var(--ink)}
-.error{display:none;margin-top:12px;color:#9b4545;font-size:13px;font-weight:750}.note{margin-top:16px;padding:13px 14px;border-radius:12px;background:var(--soft);color:var(--muted);font-size:12px}
-.analyzing{text-align:center;padding:20px 5px}.loader{width:46px;height:46px;border:4px solid #eadfdb;border-top-color:var(--accent);border-radius:50%;margin:8px auto 18px;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}.result{display:none}.resultHero{background:var(--dark);color:#fff;border-radius:20px;padding:25px}.resultHero small{color:#d8c9c6;font-weight:800;text-transform:uppercase;letter-spacing:.7px}.resultHero h2{font-size:31px;margin:8px 0}.resultHero p{color:#e6ddda;margin:0}
-.resultGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.metric{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}.metric b{display:block;font-size:20px}.metric span{font-size:12px;color:var(--muted)}
-.next{margin-top:14px;padding:18px;border-radius:16px;background:#f8eff0;border:1px solid #ead5d8}.next b{display:block;margin-bottom:5px}.footerNote{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
-@media(max-width:700px){main{padding-top:32px}.options,.textGrid,.resultGrid{grid-template-columns:1fr}.card{padding:21px;border-radius:19px}.actions{flex-direction:column}h1{letter-spacing:-1.7px}}
+h1{font-size:clamp(36px,6vw,56px);line-height:1.02;letter-spacing:-2.2px;margin:15px 0 12px}
+.lead{font-size:18px;color:var(--muted);max-width:700px;margin:0}
+.progressWrap{margin:28px 0 18px}
+.progressTop{display:flex;justify-content:space-between;font-size:12px;font-weight:850;color:var(--muted);margin-bottom:8px}
+.progress{height:7px;background:#eadfdb;border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:25%;background:var(--accent);border-radius:99px;transition:width .35s ease}
+.card{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 14px 42px rgba(40,25,25,.055)}
+.step{display:none;animation:fade .25s ease}
+.step.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.stepNo{font-size:12px;font-weight:900;color:var(--accent);text-transform:uppercase;letter-spacing:.7px}
+h2{font-size:28px;line-height:1.1;letter-spacing:-.8px;margin:8px 0}
+.helper{color:var(--muted);margin:0 0 20px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.option{position:relative}
+.option input{position:absolute;opacity:0;pointer-events:none}
+.option label{display:block;border:1px solid var(--line);border-radius:15px;padding:16px 15px;background:#fff;cursor:pointer;font-weight:800;transition:.18s ease}
+.option label:hover{transform:translateY(-1px);border-color:#cfaeb2}
+.option input:checked+label{border-color:var(--accent);background:#f8eff0;box-shadow:0 0 0 2px rgba(154,95,104,.12)}
+.textGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label.field{display:block;font-size:13px;font-weight:850;margin-bottom:7px}
+input[type=text],input[type=email]{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit;outline:none}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(154,95,104,.1)}
+.actions{display:flex;gap:10px;margin-top:22px}
+.btn{flex:1;border:0;border-radius:12px;padding:15px;background:var(--dark);color:#fff;font-weight:900;font-size:15px;cursor:pointer}
+.btn:disabled{opacity:.65;cursor:wait}
+.btn.secondary{background:#f2e9e6;color:var(--ink)}
+.error{display:none;margin-top:12px;color:#9b4545;font-size:13px;font-weight:750}
+.note{margin-top:16px;padding:13px 14px;border-radius:12px;background:var(--soft);color:var(--muted);font-size:12px}
+.analyzing{text-align:center;padding:20px 5px}
+.loader{width:46px;height:46px;border:4px solid #eadfdb;border-top-color:var(--accent);border-radius:50%;margin:8px auto 18px;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.result{display:none}
+.resultHero{background:var(--dark);color:#fff;border-radius:20px;padding:25px}
+.resultHero small{color:#d8c9c6;font-weight:800;text-transform:uppercase;letter-spacing:.7px}
+.resultHero h2{font-size:31px;margin:8px 0}
+.resultHero p{color:#e6ddda;margin:0}
+.resultGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.metric{border:1px solid var(--line);border-radius:15px;padding:17px;background:#fff}
+.metric b{display:block;font-size:20px}
+.metric span{font-size:12px;color:var(--muted)}
+.next{margin-top:14px;padding:18px;border-radius:16px;background:#f8eff0;border:1px solid #ead5d8}
+.next b{display:block;margin-bottom:5px}
+.footerNote{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:700px){
+  main{padding-top:32px}
+  .options,.textGrid,.resultGrid{grid-template-columns:1fr}
+  .card{padding:21px;border-radius:19px}
+  .actions{flex-direction:column}
+  h1{letter-spacing:-1.7px}
+}
 </style>
 </head>
 <body>
-<div class="top"><div class="container"><div class="logo">RE<span>CLIENTE</span></div></div></div>
-<main><div class="container">
-<div class="hero"><span class="eyebrow">ReCliente Diagnóstico</span><h1>Vamos descobrir onde estão suas oportunidades de retorno.</h1><p class="lead">É rápido. Primeiro entendemos seu negócio; depois mostramos uma prévia do que o ReCliente pode encontrar na sua base.</p></div>
-<div class="progressWrap"><div class="progressTop"><span id="progressText">Etapa 1 de 4</span><span id="progressLabel">Seu negócio</span></div><div class="progress"><i id="bar"></i></div></div>
-<div class="card">
-<div class="step active" data-step="1"><div class="stepNo">01 · Seu negócio</div><h2>Qual é o seu negócio?</h2><p class="helper">Escolha a opção que mais se aproxima da sua realidade.</p>
-<div class="options">
-<div class="option"><input type="radio" name="negocio" id="n1" value="Nails / Manicure"><label for="n1">💅 Nails / Manicure</label></div>
-<div class="option"><input type="radio" name="negocio" id="n2" value="Salão de beleza"><label for="n2">💇 Salão de beleza</label></div>
-<div class="option"><input type="radio" name="negocio" id="n3" value="Barbearia"><label for="n3">💈 Barbearia</label></div>
-<div class="option"><input type="radio" name="negocio" id="n4" value="Estética"><label for="n4">✨ Estética</label></div>
-<div class="option"><input type="radio" name="negocio" id="n5" value="Pet"><label for="n5">🐶 Pet</label></div>
-<div class="option"><input type="radio" name="negocio" id="n6" value="Outro"><label for="n6">＋ Outro</label></div></div>
-<div class="error" id="e1">Escolha uma opção para continuar.</div><div class="actions"><button class="btn" onclick="next()">Continuar →</button></div></div>
+<div class="top">
+  <div class="container">
+    <div class="logo">RE<span>CLIENTE</span></div>
+  </div>
+</div>
 
-<div class="step" data-step="2"><div class="stepNo">02 · Tamanho da base</div><h2>Quantos clientes você já tem ou já atendeu?</h2><p class="helper">Uma estimativa já é suficiente nesta primeira etapa.</p>
-<div class="options">
-<div class="option"><input type="radio" name="clientes" id="c1" value="Até 100"><label for="c1">Até 100</label></div>
-<div class="option"><input type="radio" name="clientes" id="c2" value="100–300"><label for="c2">100–300</label></div>
-<div class="option"><input type="radio" name="clientes" id="c3" value="300–1.000"><label for="c3">300–1.000</label></div>
-<div class="option"><input type="radio" name="clientes" id="c4" value="Mais de 1.000"><label for="c4">Mais de 1.000</label></div></div>
-<div class="error" id="e2">Escolha uma faixa para continuar.</div><div class="actions"><button class="btn secondary" onclick="back()">← Voltar</button><button class="btn" onclick="next()">Continuar →</button></div></div>
+<main>
+<div class="container">
 
-<div class="step" data-step="3"><div class="stepNo">03 · Retorno</div><h2>Com que frequência seus clientes costumam voltar?</h2><p class="helper">Se você não souber, tudo bem. Essa resposta também é útil.</p>
-<div class="options">
-<div class="option"><input type="radio" name="freq" id="f1" value="Toda semana"><label for="f1">Toda semana</label></div>
-<div class="option"><input type="radio" name="freq" id="f2" value="A cada 15 dias"><label for="f2">A cada 15 dias</label></div>
-<div class="option"><input type="radio" name="freq" id="f3" value="Mensalmente"><label for="f3">Mensalmente</label></div>
-<div class="option"><input type="radio" name="freq" id="f4" value="A cada 2–3 meses"><label for="f4">A cada 2–3 meses</label></div>
-<div class="option"><input type="radio" name="freq" id="f5" value="Não sei"><label for="f5">Não sei</label></div></div>
-<div class="error" id="e3">Escolha uma opção para continuar.</div><div class="actions"><button class="btn secondary" onclick="back()">← Voltar</button><button class="btn" onclick="analyze()">Analisar meu cenário →</button></div></div>
+  <div class="hero">
+    <span class="eyebrow">ReCliente Diagnóstico</span>
+    <h1>Vamos descobrir onde estão suas oportunidades de retorno.</h1>
+    <p class="lead">É rápido. Primeiro entendemos seu negócio; depois mostramos uma prévia do que o ReCliente pode encontrar na sua base.</p>
+  </div>
 
-<div class="step" data-step="4"><div class="analyzing" id="analyzing"><div class="stepNo">04 · Analisando</div><div class="loader"></div><h2>Estamos preparando sua leitura...</h2><p class="helper">Cruzando o tamanho da sua base com o comportamento de retorno informado.</p></div>
-<div class="result" id="result"><div class="resultHero"><small>Prévia do ReCliente</small><h2>Sua base já pode esconder oportunidades.</h2><p id="resultText"></p></div>
-<div class="resultGrid"><div class="metric"><b id="metric1">—</b><span>base informada</span></div><div class="metric"><b id="metric2">—</b><span>retorno indicado</span></div><div class="metric"><b>Radar</b><span>oportunidades que merecem atenção</span></div></div>
-<div class="next"><b>Quer descobrir exatamente quem está nessa situação?</b><span>O diagnóstico completo usa os dados reais do seu negócio. Nesta prévia, não precisamos de nomes ou telefones.</span></div>
-<div class="actions"><button class="btn" onclick="showContact()">Quero preparar meu diagnóstico completo →</button></div>
-<div id="contact" style="display:none;margin-top:18px"><div class="textGrid"><div><label class="field" for="nome">Seu nome</label><input type="text" id="nome" placeholder="Como podemos chamar você?"></div><div><label class="field" for="email">E-mail da compra</label><input type="email" id="email" placeholder="seu@email.com"></div></div>
-<div class="note"><strong>Privacidade:</strong> não envie senhas. Também não solicitamos nomes ou telefones de clientes nesta etapa.</div><div class="error" id="e4">Preencha seu nome e o e-mail usado na compra.</div><div class="actions"><button class="btn" onclick="finish()">Continuar com meu diagnóstico</button></div></div></div></div>
-</div><div class="footerNote">ReCliente · Uma leitura inicial. O diagnóstico completo depende dos dados reais do negócio.</div>
-</div></main>
+  <div class="progressWrap">
+    <div class="progressTop">
+      <span id="progressText">Etapa 1 de 4</span>
+      <span id="progressLabel">Seu negócio</span>
+    </div>
+    <div class="progress"><i id="bar"></i></div>
+  </div>
+
+  <div class="card">
+
+    <div class="step active" data-step="1">
+      <div class="stepNo">01 · Seu negócio</div>
+      <h2>Qual é o seu negócio?</h2>
+      <p class="helper">Escolha a opção que mais se aproxima da sua realidade.</p>
+
+      <div class="options">
+        <div class="option"><input type="radio" name="negocio" id="n1" value="Nails / Manicure"><label for="n1">💅 Nails / Manicure</label></div>
+        <div class="option"><input type="radio" name="negocio" id="n2" value="Salão de beleza"><label for="n2">💇 Salão de beleza</label></div>
+        <div class="option"><input type="radio" name="negocio" id="n3" value="Barbearia"><label for="n3">💈 Barbearia</label></div>
+        <div class="option"><input type="radio" name="negocio" id="n4" value="Estética"><label for="n4">✨ Estética</label></div>
+        <div class="option"><input type="radio" name="negocio" id="n5" value="Pet"><label for="n5">🐶 Pet</label></div>
+        <div class="option"><input type="radio" name="negocio" id="n6" value="Outro"><label for="n6">＋ Outro</label></div>
+      </div>
+
+      <div class="error" id="e1">Escolha uma opção para continuar.</div>
+      <div class="actions">
+        <button type="button" class="btn" onclick="next()">Continuar →</button>
+      </div>
+    </div>
+
+    <div class="step" data-step="2">
+      <div class="stepNo">02 · Tamanho da base</div>
+      <h2>Quantos clientes você já tem ou já atendeu?</h2>
+      <p class="helper">Uma estimativa já é suficiente nesta primeira etapa.</p>
+
+      <div class="options">
+        <div class="option"><input type="radio" name="clientes" id="c1" value="Até 100"><label for="c1">Até 100</label></div>
+        <div class="option"><input type="radio" name="clientes" id="c2" value="100–300"><label for="c2">100–300</label></div>
+        <div class="option"><input type="radio" name="clientes" id="c3" value="300–1.000"><label for="c3">300–1.000</label></div>
+        <div class="option"><input type="radio" name="clientes" id="c4" value="Mais de 1.000"><label for="c4">Mais de 1.000</label></div>
+      </div>
+
+      <div class="error" id="e2">Escolha uma faixa para continuar.</div>
+      <div class="actions">
+        <button type="button" class="btn secondary" onclick="back()">← Voltar</button>
+        <button type="button" class="btn" onclick="next()">Continuar →</button>
+      </div>
+    </div>
+
+    <div class="step" data-step="3">
+      <div class="stepNo">03 · Retorno</div>
+      <h2>Com que frequência seus clientes costumam voltar?</h2>
+      <p class="helper">Se você não souber, tudo bem. Essa resposta também é útil.</p>
+
+      <div class="options">
+        <div class="option"><input type="radio" name="freq" id="f1" value="Toda semana"><label for="f1">Toda semana</label></div>
+        <div class="option"><input type="radio" name="freq" id="f2" value="A cada 15 dias"><label for="f2">A cada 15 dias</label></div>
+        <div class="option"><input type="radio" name="freq" id="f3" value="Mensalmente"><label for="f3">Mensalmente</label></div>
+        <div class="option"><input type="radio" name="freq" id="f4" value="A cada 2–3 meses"><label for="f4">A cada 2–3 meses</label></div>
+        <div class="option"><input type="radio" name="freq" id="f5" value="Não sei"><label for="f5">Não sei</label></div>
+      </div>
+
+      <div class="error" id="e3">Escolha uma opção para continuar.</div>
+      <div class="actions">
+        <button type="button" class="btn secondary" onclick="back()">← Voltar</button>
+        <button type="button" class="btn" onclick="analyze()">Analisar meu cenário →</button>
+      </div>
+    </div>
+
+    <div class="step" data-step="4">
+      <div class="analyzing" id="analyzing">
+        <div class="stepNo">04 · Analisando</div>
+        <div class="loader"></div>
+        <h2>Estamos preparando sua leitura...</h2>
+        <p class="helper">Cruzando o tamanho da sua base com o comportamento de retorno informado.</p>
+      </div>
+
+      <div class="result" id="result">
+        <div class="resultHero">
+          <small>Prévia do ReCliente</small>
+          <h2>Sua base já pode esconder oportunidades.</h2>
+          <p id="resultText"></p>
+        </div>
+
+        <div class="resultGrid">
+          <div class="metric"><b id="metric1">—</b><span>base informada</span></div>
+          <div class="metric"><b id="metric2">—</b><span>retorno indicado</span></div>
+          <div class="metric"><b>Radar</b><span>oportunidades que merecem atenção</span></div>
+        </div>
+
+        <div class="next">
+          <b>Quer descobrir exatamente quem está nessa situação?</b>
+          <span>O diagnóstico completo usa os dados reais do seu negócio. Nesta prévia, não precisamos de nomes ou telefones.</span>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn" onclick="showContact()">Quero preparar meu diagnóstico completo →</button>
+        </div>
+
+        <div id="contact" style="display:none;margin-top:18px">
+          <div class="textGrid">
+            <div>
+              <label class="field" for="nome">Seu nome</label>
+              <input type="text" id="nome" maxlength="120" autocomplete="name" placeholder="Como podemos chamar você?">
+            </div>
+            <div>
+              <label class="field" for="email">E-mail da compra</label>
+              <input type="email" id="email" maxlength="254" autocomplete="email" placeholder="seu@email.com">
+            </div>
+          </div>
+
+          <div class="note"><strong>Privacidade:</strong> não envie senhas. Também não solicitamos nomes ou telefones de clientes nesta etapa.</div>
+          <div class="error" id="e4">Preencha seu nome e o e-mail usado na compra.</div>
+
+          <div class="actions">
+            <button type="button" class="btn" onclick="finish()">Continuar com meu diagnóstico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footerNote">ReCliente · Uma leitura inicial. O diagnóstico completo depende dos dados reais do negócio.</div>
+</div>
+</main>
+
 <script>
-let step=1;const labels=['Seu negócio','Tamanho da base','Retorno','Seu resultado'];
-function selected(name){return document.querySelector('input[name="'+name+'"]:checked')?.value||''}
-function render(){document.querySelectorAll('.step').forEach(x=>x.classList.toggle('active',+x.dataset.step===step));document.getElementById('progressText').textContent='Etapa '+step+' de 4';document.getElementById('progressLabel').textContent=labels[step-1];document.getElementById('bar').style.width=(step*25)+'%';window.scrollTo({top:0,behavior:'smooth'})}
-function next(){const v=selected(step===1?'negocio':'clientes');const e=document.getElementById('e'+step);if(!v){e.style.display='block';return}e.style.display='none';step++;render()}
-function back(){if(step>1){step--;render()}}
-function analyze(){if(!selected('freq')){document.getElementById('e3').style.display='block';return}document.getElementById('e3').style.display='none';step=4;render();document.getElementById('analyzing').style.display='block';document.getElementById('result').style.display='none';setTimeout(()=>{const negocio=selected('negocio'),clientes=selected('clientes'),freq=selected('freq');document.getElementById('metric1').textContent=clientes;document.getElementById('metric2').textContent=freq;document.getElementById('resultText').textContent='Para um negócio de '+negocio.toLowerCase()+', entender quem está demorando mais do que o normal para voltar pode revelar clientes que ainda conhecem seu trabalho, mas estão esfriando.';document.getElementById('analyzing').style.display='none';document.getElementById('result').style.display='block'},1100)}
-function showContact(){document.getElementById('contact').style.display='block';document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'center'})}
-function finish(){const n=document.getElementById('nome').value.trim(),e=document.getElementById('email').value.trim(),er=document.getElementById('e4');if(!n||!e||!e.includes('@')){er.style.display='block';return}er.style.display='none';localStorage.setItem('recliente_diagnostico',JSON.stringify({nome:n,email:e,negocio:selected('negocio'),clientes:selected('clientes'),freq:selected('freq')}));window.location.href='../obrigado/'}
+const SUPABASE_URL = 'https://sbhyouefkrsyexgyykyb.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_ZTREkaens9brFfOtnyLP6A_NRz-4YV8';
+
+let step = 1;
+
+const labels = [
+  'Seu negócio',
+  'Tamanho da base',
+  'Retorno',
+  'Seu resultado'
+];
+
+function selected(name) {
+  return document.querySelector('input[name="' + name + '"]:checked')?.value || '';
+}
+
+function render() {
+  document.querySelectorAll('.step').forEach(function (element) {
+    element.classList.toggle('active', Number(element.dataset.step) === step);
+  });
+
+  document.getElementById('progressText').textContent = 'Etapa ' + step + ' de 4';
+  document.getElementById('progressLabel').textContent = labels[step - 1];
+  document.getElementById('bar').style.width = (step * 25) + '%';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function next() {
+  const field = step === 1 ? 'negocio' : 'clientes';
+  const error = document.getElementById('e' + step);
+
+  if (!selected(field)) {
+    error.style.display = 'block';
+    return;
+  }
+
+  error.style.display = 'none';
+  step++;
+  render();
+}
+
+function back() {
+  if (step > 1) {
+    step--;
+    render();
+  }
+}
+
+function analyze() {
+  if (!selected('freq')) {
+    document.getElementById('e3').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('e3').style.display = 'none';
+  step = 4;
+  render();
+
+  document.getElementById('analyzing').style.display = 'block';
+  document.getElementById('result').style.display = 'none';
+
+  setTimeout(function () {
+    const negocio = selected('negocio');
+    const clientes = selected('clientes');
+    const freq = selected('freq');
+
+    document.getElementById('metric1').textContent = clientes;
+    document.getElementById('metric2').textContent = freq;
+
+    document.getElementById('resultText').textContent =
+      'Para um negócio de ' + negocio.toLowerCase() +
+      ', entender quem está demorando mais do que o normal para voltar pode revelar clientes que ainda conhecem seu trabalho, mas estão esfriando.';
+
+    document.getElementById('analyzing').style.display = 'none';
+    document.getElementById('result').style.display = 'block';
+  }, 1100);
+}
+
+function showContact() {
+  document.getElementById('contact').style.display = 'block';
+  document.getElementById('contact').scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+}
+
+async function finish() {
+  const nome = document.getElementById('nome').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const errorElement = document.getElementById('e4');
+  const button = document.querySelector('#contact .actions .btn');
+
+  if (
+    !nome ||
+    !email ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  ) {
+    errorElement.textContent = 'Preencha seu nome e um e-mail válido.';
+    errorElement.style.display = 'block';
+    return;
+  }
+
+  errorElement.style.display = 'none';
+
+  const originalText = button.textContent;
+
+  button.disabled = true;
+  button.textContent = 'Registrando seus dados...';
+
+  const dados = {
+    nome: nome,
+    email: email,
+    negocio: selected('negocio'),
+    clientes: selected('clientes'),
+    freq: selected('freq')
+  };
+
+  try {
+    const response = await fetch(
+      SUPABASE_URL + '/functions/v1/registrar-diagnostico',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_PUBLISHABLE_KEY
+        },
+        body: JSON.stringify(dados)
+      }
+    );
+
+    let resultado;
+
+    try {
+      resultado = await response.json();
+    } catch {
+      throw new Error('O servidor retornou uma resposta inválida.');
+    }
+
+    if (!response.ok || !resultado.success) {
+      throw new Error(
+        resultado.error || 'Não foi possível registrar seus dados.'
+      );
+    }
+
+    localStorage.setItem(
+      'recliente_diagnostico',
+      JSON.stringify(dados)
+    );
+
+    window.location.href = '../obrigado/';
+  } catch (error) {
+    console.error('Erro ao registrar diagnóstico:', error);
+
+    errorElement.textContent =
+      error instanceof Error
+        ? error.message
+        : 'Não foi possível enviar seus dados. Tente novamente.';
+
+    errorElement.style.display = 'block';
+    button.disabled = false;
+    button.textContent = originalText;
+  }
+}
 </script>
-</body></html>
+</body>
+</html>
