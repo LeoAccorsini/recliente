@@ -1,45 +1,295 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fbf8f6">
-<title>ReCliente — Próximo passo</title>
-<meta name="description" content="Saiba como continuar com o ReCliente Diagnóstico.">
+<meta name="robots" content="noindex, nofollow">
+<title>ReCliente — Dados recebidos</title>
+<meta name="description" content="Confirmação do envio das informações iniciais do seu diagnóstico ReCliente.">
+
 <style>
-:root{--bg:#fbf8f6;--card:#fff;--ink:#252222;--muted:#706865;--accent:#9a5f68;--accent-dark:#6f3f49;--line:#eadfdb;--dark:#211d1d;--soft:#f5eeeb}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
-.wrap{width:min(760px,92%);margin:auto}header{padding:20px 0;border-bottom:1px solid var(--line);background:rgba(251,248,246,.94)}
-.logo{font-size:23px;font-weight:950;letter-spacing:-1px}.logo span{color:var(--accent)}main{padding:58px 0 72px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,5vw,44px);box-shadow:0 18px 55px rgba(40,25,25,.06)}
-.tag{display:inline-flex;border-radius:999px;padding:8px 12px;background:#efe2df;color:var(--accent-dark);font-size:12px;font-weight:900;letter-spacing:.5px;text-transform:uppercase}
-h1{font-size:clamp(34px,6vw,52px);line-height:1.04;letter-spacing:-1.8px;margin:20px 0 14px}.lead{font-size:18px;color:var(--muted);margin:0;max-width:620px}
-.steps{display:grid;gap:12px;margin:28px 0}.step{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:16px}
-.num{flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--accent-dark);font-weight:950}
-.step strong{display:block;margin-bottom:3px}.step p{margin:0;color:var(--muted);font-size:14px}
-.actions{display:grid;gap:11px;margin-top:25px}.btn{display:flex;justify-content:center;align-items:center;text-align:center;text-decoration:none;padding:16px 20px;border-radius:13px;background:var(--dark);color:white;font-weight:900;transition:transform .18s,background .18s}
-.btn:hover{transform:translateY(-1px);background:#382f30}.secondary{background:#f2e9e6;color:var(--ink)}.secondary:hover{background:#eadbd7;color:var(--ink)}
-.note{margin-top:20px;border-radius:13px;background:var(--soft);padding:14px;color:var(--muted);font-size:12px}footer{text-align:center;color:var(--muted);font-size:12px;padding:0 0 28px}
-@media(max-width:600px){main{padding:30px 0 48px}.card{border-radius:19px}.lead{font-size:16px}.step{padding:14px}}
+:root {
+  --bg: #fbf8f6;
+  --card: #ffffff;
+  --ink: #252222;
+  --muted: #706865;
+  --accent: #9a5f68;
+  --accent-dark: #6f3f49;
+  --dark: #211d1d;
+  --line: #eadfdb;
+  --soft: #f5eeeb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.top {
+  padding: 21px 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(251,248,246,.94);
+}
+
+.container {
+  width: min(900px, 92%);
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 950;
+  letter-spacing: -1px;
+}
+
+.logo span { color: var(--accent); }
+
+main {
+  width: min(600px, 92%);
+  margin: 42px auto 60px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: 0 14px 42px rgba(40,25,25,.055);
+}
+
+.badge {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #efe2df;
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin: 22px 0 16px;
+  border-radius: 50%;
+  background: #f1e8e8;
+  color: var(--accent-dark);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+h1 {
+  margin: 0 0 13px;
+  font-size: clamp(32px, 5vw, 43px);
+  line-height: 1.08;
+  letter-spacing: -1.6px;
+}
+
+.intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.info {
+  margin-top: 25px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #fff;
+}
+
+.info h2 {
+  margin: 0 0 7px;
+  font-size: 17px;
+}
+
+.info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.steps {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.step strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.note {
+  margin-top: 18px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 15px 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--dark);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.footer {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media(max-width:600px) {
+  main { margin-top: 25px; }
+  .card { padding: 23px; border-radius: 19px; }
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap"><div class="logo">RE<span>CLIENTE</span></div></div></header>
-<main><div class="wrap"><section class="card">
-<span class="tag">Seu próximo passo</span>
-<h1>Vamos transformar sua base de clientes em oportunidades.</h1>
-<p class="lead">O ReCliente Diagnóstico ajuda você a entender onde pode haver oportunidades de retorno e como começar a agir.</p>
-<div class="steps">
-<div class="step"><span class="num">1</span><div><strong>Conclua sua compra</strong><p>Finalize o pagamento pela Cakto. As instruções de acesso serão enviadas ao e-mail informado na compra, conforme a configuração do produto.</p></div></div>
-<div class="step"><span class="num">2</span><div><strong>Conte um pouco sobre seu negócio</strong><p>Você responderá algumas perguntas rápidas para contextualizar seu diagnóstico.</p></div></div>
-<div class="step"><span class="num">3</span><div><strong>Prepare os próximos dados</strong><p>Por enquanto, não envie listas com nomes ou telefones de clientes nesta página. A análise completa será disponibilizada quando o fluxo de dados estiver pronto.</p></div></div>
-</div>
-<div class="actions">
-<a class="btn" href="https://pay.cakto.com.br/35czazo_1184308">Ir para o checkout seguro →</a>
-<a class="btn secondary" href="/diagnostico/">Voltar ao diagnóstico</a>
-</div>
-<div class="note"><strong>Importante:</strong> esta página não confirma pagamento nem informa que uma análise foi concluída. A confirmação da compra depende da Cakto. Não compartilhe senhas ou dados sensíveis.</div>
-</section></div></main>
-<footer><div class="wrap">ReCliente · Uma experiência clara, do primeiro passo à entrega.</div></footer>
+<header class="top">
+  <div class="container">
+    <div class="logo">RE<span>CLIENTE</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <span class="badge">ReCliente Diagnóstico</span>
+
+    <div class="check" aria-hidden="true">✓</div>
+
+    <h1>Suas informações iniciais foram recebidas!</h1>
+
+    <p class="intro">
+      Obrigado por compartilhar um pouco sobre seu negócio.
+      Este é o primeiro passo para identificar oportunidades
+      de retorno dos seus clientes.
+    </p>
+
+    <div class="info">
+      <h2>O que acontece agora?</h2>
+      <p>
+        As respostas deste formulário registram o perfil inicial
+        do seu negócio. Para concluir um diagnóstico baseado na sua
+        base real de clientes, ainda será necessário preparar e
+        analisar esses dados.
+      </p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="number">1</div>
+        <div>
+          <strong>Informações iniciais</strong>
+          <p>Suas respostas sobre o negócio, o tamanho da base e a frequência de retorno.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="number">2</div>
+        <div>
+          <strong>Preparação da base</strong>
+          <p>O próximo passo será orientar a preparação dos dados necessários para a análise completa.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="number">3</div>
+        <div>
+          <strong>Diagnóstico completo</strong>
+          <p>Após a análise dos dados reais, será possível identificar oportunidades específicas de retorno.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Importante:</strong> esta confirmação não comprova pagamento
+      nem significa que o diagnóstico completo já foi concluído.
+      Não envie senhas ou dados pessoais de clientes por esta página.
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="/diagnostico/">
+        Voltar ao diagnóstico
+      </a>
+
+      <a class="btn secondary" href="/">
+        Voltar ao ReCliente
+      </a>
+    </div>
+  </section>
+
+  <div class="footer">
+    ReCliente · Transformando relacionamentos em oportunidades de retorno.
+  </div>
+</main>
 </body>
 </html>
